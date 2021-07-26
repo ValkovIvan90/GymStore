@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gymstore-3c078": {
+      "hosting": {
+        "GymStore": [
+          "gymstore-3c078"
+        ]
+      }
+    }
+  }
+}
