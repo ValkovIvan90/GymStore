@@ -40,6 +40,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: 'shoping-cart', component: ShopingCartComponent },
       { path: 'check-out', component: CheckOutComponent },
       { path: 'order-success', component: OrderSucssesComponent },
+      { path: 'my/orders', component: MyOrdersComponent },
       { path: 'login', component: LoginComponent },
       { path: 'admin/products', component: AdminProductsComponent },
       { path: 'admin/orders', component: AdminOrdersComponent },

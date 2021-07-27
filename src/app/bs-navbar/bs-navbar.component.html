@@ -1,22 +1,18 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-            </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a routerLink="/" class="nav-link px-2 text-white">Home</a></li>
                 <li><a routerLink="/shoping-cart" class="nav-link px-2 text-white">Articles</a></li>
                 <li><a routerLink="/about" class="nav-link px-2 text-white">About</a></li>
                 <li ngbDropdown class="nav-item dropdown">
-                    <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown01">Dropdown</a>
+                    <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
                     <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a href="" class="dropdown-item">Action</a>
-                        <a href="" class="dropdown-item">Another action</a>
-                        <a href="" class="dropdown-item">Something Else</a>
+                        <a routerLink="/my/orders" class="dropdown-item">My Orders</a>
+                        <a routerLink="/admin/orders" class="dropdown-item">Manage Orders</a>
+                        <a routerLink="/admin/products" class="dropdown-item">Manage Products</a>
+                        <a class="dropdown-item">Log Out</a>
                     </div>
                 </li>
             </ul>
