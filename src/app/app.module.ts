@@ -16,6 +16,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: 'order-success', component: OrderSucssesComponent },
       { path: 'my/orders', component: MyOrdersComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'admin/products', component: AdminProductsComponent },
       { path: 'admin/orders', component: AdminOrdersComponent },
     ]),
