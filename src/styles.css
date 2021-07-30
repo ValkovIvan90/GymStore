@@ -4,7 +4,22 @@
 h1 {
     padding-left: 400px;
 }
-.lead{
-    padding-left: 400px;
 
+.lead {
+    padding-left: 400px;
+}
+
+body{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPoTeHjXoGrTaJhu4fzOHFsHZbO2roPeVv_Q&usqp=CAU');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: auto;
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(145, 184, 38);
+    text-align: left;
 }

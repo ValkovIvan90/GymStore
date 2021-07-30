@@ -1,0 +1,12 @@
+.art {
+    background-color: #4CAF50;
+}
+
+.art>h1 {
+    color: black;
+    padding-left: 300px;
+}
+
+.col-md-12>h1 {
+    color:orangered;
+}
