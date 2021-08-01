@@ -5,15 +5,14 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a routerLink="/" class="nav-link px-2 text-white">Home</a></li>
                 <li><a routerLink="/articles" class="nav-link px-2 text-white">Articles</a></li>
-                <li><a routerLink="/about" class="nav-link px-2 text-white">About</a></li>
                 <li ngbDropdown class="nav-item dropdown">
                     <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">email</a>
+                        aria-haspopup="true" aria-expanded="false">Username</a>
                     <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
                         <a routerLink="/my/orders" class="dropdown-item">My Orders</a>
                         <a routerLink="/admin/orders" class="dropdown-item">Manage Orders</a>
                         <a routerLink="/admin/products" class="dropdown-item">Manage Products</a>
-                        <a class="dropdown-item">Log Out</a>
+                        <a class="dropdown-item" (click)="logout()">Log Out</a>
                     </div>
                 </li>
             </ul>

@@ -13,11 +13,15 @@ const routes: Routes = [
     {
         path: 'articles',
         component: ArticlesComponent
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 export class AppRoutingModule { }

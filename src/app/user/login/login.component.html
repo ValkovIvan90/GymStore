@@ -1,16 +1,18 @@
 <div class="formBox">
-  <form action="action_page.php">
+  <form #f="ngForm" (ngSubmit)="onLogin(f)" action="action_page.php">
     <div class="titleColor">
       <h2>Login to your Account</h2>
     </div>
     <div class="container">
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" ngModel email required
+        [ngClass]="{error: loginErrorMessage}">
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit">Login</button>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password"
+        [ngClass]="{error: loginErrorMessage}">
+      <p *ngIf="loginErrorMessage" class="error"> {{loginErrorMessage}}</p>
+      <button #btn type="submit" [disabled]="f.invalid || !password">Login</button>
       <label>
         <input id="checked" type="checkbox" checked="checked" name="remember"> Remember me
       </label>

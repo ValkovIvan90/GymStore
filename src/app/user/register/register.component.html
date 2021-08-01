@@ -12,38 +12,47 @@
           <h4 class="modal-title">Ready to Join? Create a New Account</h4>
         </div>
 
-        <form action="" method="post">
+        <form #f="ngForm" (ngSubmit)="onReg(f)">
           <div class="modal-body">
             <div class="form-group">
-              <label for="userEmail">Email Address*</label>
-              <input type="text" class="form-control" required="" name="userEmail" value="">
+              <label for="email">Email Address*</label>
+              <input type="email" #emailInput="ngModel" class="form-control" name="email" ngModel
+              email required pattern="\w+\.*\w+@\w{2,}\.\w{2,}"
+              [ngClass]="{error: (emailInput.invalid&&emailInput.touched)}">
               <span class="help-block">Your email address is also used to log in.</span>
-            </div>
-            <div class="form-group">
-              <label for="userEmail">Username*</label>
-              <input type="text" class="form-control" required="" name="userEmail" value="">
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="password">Password*</label>
-                  <input type="password" class="form-control" required="" name="password" value="">
+                  <input type="password" class="form-control"name="password"
+                  #pass="ngModel" ngModel minlength="6" (input)="check(passwordConfirmed.value, pass.value)"
+                  [ngClass]="{error: (pass.invalid && pass.touched)}">
                   <span class="help-block">Choose a password for your new account.</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="passwordr">Repeat Password*</label>
-                  <input type="password" class="form-control" required="" name="passwordr" value="">
-                  <span class="help-block">Type the password again. Passwords must match.</span>
+                  <label for="passwordConfirmed">Confirm password*</label>
+                  <input type="password" class="form-control" name="passwordConfirmed" #passwordConfirmed="ngModel" ngModel minlength="6"
+                  (input)="check(passwordConfirmed.value, pass.value)"
+                  [ngClass]="{error: (passwordConfirmed.touched && !checkPassword)}">
                 </div>
               </div>
+              <ul *ngIf="f.invalid||!checkPassword">
+                <li *ngIf="emailInput.invalid && emailInput.touched" class="error">Email is not valid!</li>
+                <li *ngIf="pass.invalid && pass.touched" class="error">Minimum length for password is 6 characters.
+                </li>
+                <li *ngIf="passwordConfirmed.touched && !checkPassword" class="error">Password does not match!
+                </li>
+            </ul>
+            <p *ngIf="regErrorMessage" class="error"> {{regErrorMessage}}</p>
             </div>
           </div>
 
           <div class="modal-footer">
             <input type="hidden" name="isEmpty" value="">
-            <button type="input" name="submit" value="newAccount" class="btn btn-success btn-icon"><i
+            <button type="submit" [disabled]="f.invalid||!checkPassword" class="btn btn-success btn-icon"><i
                 class="fa fa-check"></i> Create My Account</button>
           </div>
         </form>

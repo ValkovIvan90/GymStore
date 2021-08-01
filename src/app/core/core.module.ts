@@ -9,6 +9,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -22,6 +23,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
   exports: [
     HeaderComponent,
     FooterComponent
+  ],
+  providers: [
   ]
 })
 export class CoreModule { }

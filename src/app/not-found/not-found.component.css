@@ -4,3 +4,9 @@ body {
 .page-wrap {
     min-height: 100vh;
 }
+.col-md-12{
+    background-color: rgb(184, 37, 37);
+}
+.btn{
+    color: rgb(23, 211, 23);
+}
