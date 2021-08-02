@@ -1,17 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserAuthService } from 'src/app/user/user-auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
+  userEmail = '';
+  isAuth = false;
+  authSubscription!: Subscription;
+  emailSubscription!: Subscription;
 
-  constructor(private afAuth: AngularFireAuth) { 
-    afAuth.authState.subscribe(x=>console.log(x));
-  }
+  constructor(private authS: UserAuthService) { }
+
+  ngOnInit() {
+    this.authSubscription = this.authS.authChange.subscribe((authStatus) => {
+      this.isAuth = authStatus;
+    });
+    this.emailSubscription = this.authS.emailChange.subscribe((email) => {      
+      this.userEmail = email;
+    })
+
+  };
+  ngOnDestroy() {
+    this.authSubscription.unsubscribe();
+  };
+
   logout() {
-    this.afAuth.signOut();
+    this.authS.logout();
+    this.isAuth = false;
   }
 }

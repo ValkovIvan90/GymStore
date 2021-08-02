@@ -5,9 +5,9 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a routerLink="/" class="nav-link px-2 text-white">Home</a></li>
                 <li><a routerLink="/articles" class="nav-link px-2 text-white">Articles</a></li>
-                <li ngbDropdown class="nav-item dropdown">
+                <li *ngIf="isAuth" ngbDropdown class="nav-item dropdown">
                     <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Username</a>
+                        aria-haspopup="true" aria-expanded="false">{{userEmail}}</a>
                     <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
                         <a routerLink="/my/orders" class="dropdown-item">My Orders</a>
                         <a routerLink="/admin/orders" class="dropdown-item">Manage Orders</a>
@@ -22,8 +22,9 @@
             </form>
 
             <div class="text-end">
-                <button routerLink="/login" type="button" class="btn btn-outline-light me-2">Login</button>
-                <button routerLink="/register" type="button" class="btn btn-warning">Sign-up</button>
+                <button *ngIf="!isAuth" routerLink="/login" type="button"
+                    class="btn btn-outline-light me-2">Login</button>
+                <button *ngIf="!isAuth" routerLink="/register" type="button" class="btn btn-warning">Sign-up</button>
             </div>
         </div>
     </div>
